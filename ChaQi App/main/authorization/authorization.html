@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Authorization</title>
+	<link rel="stylesheet" href="authorization.css">
+	<link rel="stylesheet" href="../mainCss/components.css">
+	<link rel="stylesheet" href="../mainCss/headStyles.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+	<div class="container authorization-container">
+		<div class="closeAuthorizationContainer"><button id="closeAuthorizationBtn"></button></div>
+		<div class="mainContent-authorization">
+			<h1 class="auth-headline headerOneFont">Чтобы твоя<br> коллекция не<br> потерялась,<br> укажи телефон</h1>
+			<input type="number" class="auth-phone-number headerOneFont" placeholder="+7">
+			<div class="auth-button-container">
+				<button id="auth-getCode" class="button-default buttonOneFont">Получить код</button>
+				<button id="auth-logLater" class="button-action buttonOneFont">Зарегистрироваться позже</button>
+			</div>
+			<div class="authSocialMediaContainer">
+				<a href="#"><button id="vkvkIcon" class="authSocialMediaBtn"></button></a>
+				<a href="#"><button id="fbfbIcon" class="authSocialMediaBtn"></button></a>
+				<a href="#"><button id="googlegoogleIcon" class="authSocialMediaBtn"></button></a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

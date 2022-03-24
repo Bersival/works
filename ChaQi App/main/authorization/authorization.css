@@ -1,0 +1,129 @@
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--black-color);
+}
+
+button {
+	user-select: none;
+}
+
+.authorization-container {
+	overflow: hidden;
+	position: relative;
+	overflow-y: scroll;
+	width: 375px;
+	padding: 28px 24px 0 24px;
+	transition: 0.75s;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	/*overflow-x: scroll;*/
+}
+
+.authorization-container::-webkit-scrollbar {
+	display: none;
+}
+
+.authorization-container .closeAuthorizationContainer {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	margin-bottom: 134px;
+}
+
+.authorization-container #closeAuthorizationBtn {
+	background-image: url(../icons/close.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 90% 90%;
+	width: 36px;
+	height: 36px;
+}
+
+.authorization-container .auth-headline {
+	color: var(--white-color);
+	text-align: left;
+	margin-bottom: 48px;
+}
+.authorization-container input {
+	height: 43px;
+	max-width: 100%;
+	background-color: transparent;
+	outline: none;
+	color: var(--white-color);
+	border: none;
+	border-left: 2px solid var(--white-color);
+	padding-left: 5px;
+	margin-bottom: 50px;
+}
+.authorization-container input::-webkit-outer-spin-button,
+.authorization-container input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.auth-button-container {
+	
+	padding: 0;
+}
+
+#auth-getCode {
+	padding: 14px 0 12px 0;
+	margin-bottom: 25px;
+}
+
+#auth-logLater {
+	width: 100%;
+	padding: 14px 0 12px 0;
+	margin-bottom: 53px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.authSocialMediaContainer {
+	/*position: absolute;*/
+	margin-bottom: 63px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/*bottom: 56px;*/
+	/*left: 50%;*/
+	/*transform: translateX(-50%);*/
+}
+
+.authSocialMediaContainer a:not(:first-child) {
+	margin-left: 20px;
+}
+
+#vkvkIcon {
+	background-image: url(../icons/vkIcon.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 90% 90%;
+	width: 32px;
+	height: 32px;
+}
+
+#fbfbIcon {
+	background-image: url(../icons/fbIcon.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 90% 90%;
+	width: 32px;
+	height: 32px;
+}
+
+#googlegoogleIcon {
+	background-image: url(../icons/googleIcon.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 90% 90%;
+	width: 32px;
+	height: 32px;
+}

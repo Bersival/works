@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>kkal Counter</title>
+	<link rel="stylesheet" href="kkalCounter.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+	<h1>Kkal Counter</h1>
+	<div class="container">
+		<div class="gender">
+			<h3>Gender</h3>
+			<div class="genderChoice">
+				<input id="genderM" name="radioBtn" type="radio" value="Male">
+				<label for="genderM">Male</label>
+				<input id="genderF" name="radioBtn" type="radio" value="Female">
+				<label for="genderF">Female</label>
+			</div>
+		</div>
+
+		<div class="info">
+			<div class="personBx">
+				<div class="bodyInfoBx ageBx">
+					<h3>Age<sub>years</sub></h3>
+					<input id="age" class="bodyStat" placeholder="0" type="number">
+				</div>
+
+				<div class="bodyInfoBx heightBx">
+					<h3>Height<sub>cm</sub></h3>
+					<input id="height" class="bodyStat" placeholder="0" type="number">
+				</div>
+
+				<div class="bodyInfoBx weigthBx">
+					<h3>Weigth<sub>kg</sub></h3>
+					<input id="weigth" class="bodyStat" placeholder="0" type="number">
+				</div>
+			</div>
+
+			<div class="fitnessBx">
+				<h3>Physical Activity</h3>
+				<div class="fitnessProps">
+					<div class="fitBlock fitBlock-1">
+						<div class="radioBx">
+							<input id="physicalChoice1" type="radio" name="physicalChoice">
+							<label for="physicalChoice1">Minimum</label>
+						</div>
+						<p class="subBx">Lazy lifestyle. No trainings</p>
+					</div>
+
+					<div class="fitBlock fitBlock-2">
+						<div class="radioBx">
+							<input id="physicalChoice2" type="radio" name="physicalChoice">
+							<label for="physicalChoice2">Low</label>
+						</div>
+						<p class="subBx">Rare, unregular trainings, active existion</p>
+					</div>
+
+					<div class="fitBlock fitBlock-3">
+						<div class="radioBx">
+							<input id="physicalChoice3" type="radio" name="physicalChoice">
+							<label for="physicalChoice3">Medium</label>
+						</div>
+						<p class="subBx">3-5 trainings per week</p>
+					</div>
+
+					<div class="fitBlock fitBlock-4">
+						<div class="radioBx">
+							<input id="physicalChoice4" type="radio" name="physicalChoice">
+							<label for="physicalChoice4">High</label>
+						</div>
+						<p class="subBx">6-7 trainings per week</p>
+					</div>
+
+					<div class="fitBlock fitBlock-5">
+						<div class="radioBx">
+							<input id="physicalChoice5" type="radio" name="physicalChoice">
+							<label for="physicalChoice5">Very high</label>
+						</div>
+						<p class="subBx">6 and more trainings per week</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="btnBx">
+			<button id="calc" class="final finalCalc" id="">Сalculate</button>
+			<button id="reset" class="final finalReset"><i class="fa fa-times" aria-hidden="true"></i>   Clear input & calculating</button>
+		</div>
+	</div>
+
+	<script>
+		let age = document.querySelector("#age");
+		let height = document.querySelector("#height");
+		let weigth = document.querySelector("#weigth");
+		let genderM = document.querySelector("#genderM");
+		let genderF = document.querySelector("#genderF");
+		let calc = document.querySelector("#calc");
+		let reset = document.querySelector("#reset");
+
+		let physicalChoice1 = document.querySelector("#physicalChoice1");
+		let physicalChoice2 = document.querySelector("#physicalChoice2");
+		let physicalChoice3 = document.querySelector("#physicalChoice3");
+		let physicalChoice4 = document.querySelector("#physicalChoice4");
+		let physicalChoice5 = document.querySelector("#physicalChoice5");
+
+
+		calc.addEventListener("click", () => alert(Math.floor(calculateKkal())));
+		reset.addEventListener("click", () => location.reload())
+
+		function calculateKkal() {
+			let coefficient = 0;
+			if(physicalChoice1.checked) coefficient = 1.2;
+			else if(physicalChoice2.checked) coefficient = 1.375;
+			else if(physicalChoice3.checked) coefficient = 1.55;
+			else if(physicalChoice4.checked) coefficient = 1.725;
+			else if(physicalChoice5.checked) coefficient = 1.9;
+			// height.value = +height.value;
+			// weigth.value = +weigth.value;
+			// age.value = +age.value;
+			if(genderM.checked) {
+				// Формула Миффлина - Сан-Жеора выглядит так: Для женщин: (10 × вес в килограммах) + (6,25 × рост в сантиметрах) − (5 × возраст в годах) − 161. Для мужчин: (10 × вес в килограммах) + (6,25 × рост в сантиметрах) − (5 × возраст в годах) + 5
+				return ((10 * +weigth.value) + (6.25 * +height.value) - (5 * +age.value) + 5) * coefficient;
+			}
+
+			else if(genderF.checked) {
+				return ((10 * +weigth.value) + (6.25 * +height.value) - (5 * +age.value) - 161) * coefficient;
+			}
+		}
+	</script>
+</body>
+</html>

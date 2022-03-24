@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>GlassMorphTimer</title>
+	<link rel="stylesheet" href="GlassMorphTimer.css">
+</head>
+<body>
+	<div class="base">
+		<div class="shape1"></div>
+		<div class="shape2"></div>
+
+		<div class="container">
+			<div id="day">Day</div>
+			<div id="clock">00 : 00 : 00</div>
+		</div>
+	</div>
+	
+
+
+
+
+
+
+
+
+	<script>
+	let clock = document.querySelector("#clock");
+	let day = document.querySelector("#day");
+	function displayTime(){
+	    var date = new Date(),
+	        hours = (date.getHours() < 10) ? '0' + date.getHours() : date.getHours(),
+	        minutes = (date.getMinutes() < 10) ? '0' + date.getMinutes() : date.getMinutes(),
+	        seconds = (date.getSeconds() < 10) ? '0' + date.getSeconds() : date.getSeconds()
+	    clock.innerHTML = `${hours} : ${minutes} : ${seconds}`;
+
+	    var days = ['Sunday', "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+	    	dayOf = days[date.getDay()];
+	   day.innerHTML = dayOf;
+	}
+	setInterval(displayTime, 1000);
+	</script>
+</body>
+</html>
